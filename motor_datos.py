@@ -4,7 +4,6 @@ import pandas as pd
 conexion = sqlite3.connect('mi_base_corporativa.db')
 cursor = conexion.cursor()
 
-# Actualización de presupuesto operativo
 cursor.execute("UPDATE clientes_prospectos SET presupuesto = 85000 WHERE empresa = 'TechGlobal'")
 
 cursor.execute('''
@@ -17,7 +16,6 @@ cursor.execute('''
 ''')
 cursor.execute("DELETE FROM contactos")
 
-# Inserción de ejecutivos de cuenta y cruce relacional
 cursor.execute("INSERT INTO contactos (empresa_ref, nombre, email) VALUES ('TechGlobal', 'Ana Gómez', 'ana@techglobal.com')")
 cursor.execute("INSERT INTO contactos (empresa_ref, nombre, email) VALUES ('AgroPlus', 'Luis Pérez', 'lperez@agroplus.com')")
 conexion.commit()
